@@ -1,0 +1,12 @@
+S = Start
+E = End
+D = Desert
+J = Jungle
+P = Plains
+F = Forest
+M = Mountains
+C = Castle (Blue)
+V = Village (Brown)
+R = Road (Gray)
+? = Advantage Encounter (Yellow)
+
