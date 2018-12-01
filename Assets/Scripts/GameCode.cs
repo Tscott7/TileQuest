@@ -6,26 +6,21 @@ using TMPro;
 
 public class GameCode : MonoBehaviour {
 
-    public Text PLAYERNAME;
-    Text userNameInputText;
-    public GameObject canvas;
-    private TextMeshProUGUI name;
+    private PlayerController PCScript;
+    public TMPro.TextMeshProUGUI Days = GameObject.GetComponent<TextMeshProUGUI>();
 
 	// Use this for initialization
 	void Start () {
-        userNameInputText = canvas.transform.Find("StartPanel/InputName/PlayerNameText").GetComponent<Text>();
+        PCScript = gameObject.GetComponent("PlayerController") as PlayerController;
     }
 	
 	void Update () {
-		if(canvas.activeSelf)
-        {
-            Pause();
-        }
+        
 	}
 
     public void SetPlayerName ()
     {
-        this.PLAYERNAME = userNameInputText;
+
     }
 
     public void Pause ()

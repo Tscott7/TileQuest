@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
     Vector3 pos;                                // For movement
     Quaternion rotPos;
-    float speed = 2.0f;                         // Speed of movement
+    float speed = 20.0f;                         // Speed of movement
 
     void Start()
     {
@@ -15,25 +16,27 @@ public class PlayerController : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.A) && transform.position == pos)
+        if (transform.position.z >= 90 && transform.position.y < 1 && transform.position.y > -1)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        if (Input.GetKey(KeyCode.A) && transform.position == pos && transform.position.x > -15)
         {        // Left
             pos += Vector3.left*3;
             rotPos.Set(0, -0.7071f, 0, 0.7071f);
             GetComponent<Animator>().SetTrigger("Walk");
         }
-        if (Input.GetKey(KeyCode.D) && transform.position == pos)
+        if (Input.GetKey(KeyCode.D) && transform.position == pos && transform.position.x < 15)
         {        // Right
             pos += Vector3.right*3;
             rotPos.Set(0, 0.7071f, 0, 0.7071f);
             GetComponent<Animator>().SetTrigger("Walk");
         }
-        if (Input.GetKey(KeyCode.W) && transform.position == pos)
+        if (Input.GetKey(KeyCode.W) && transform.position == pos && transform.position.z < 90)
         {        // Forward
             pos += Vector3.forward*3;
             rotPos.Set(0, 0, 0, 0);
             GetComponent<Animator>().SetTrigger("Walk");
         }
-        if (Input.GetKey(KeyCode.S) && transform.position == pos)
+        if (Input.GetKey(KeyCode.S) && transform.position == pos && transform.position.z > 0)
         {        // Back
             pos += Vector3.back*3;
             rotPos.Set(0, 1, 0, 0);
