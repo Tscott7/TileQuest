@@ -6,29 +6,12 @@ using TMPro;
 
 public class GameCode : MonoBehaviour {
 
-    private PlayerController PCScript;
-    public TMPro.TextMeshProUGUI Days = GameObject.GetComponent<TextMeshProUGUI>();
-
-	// Use this for initialization
-	void Start () {
-        PCScript = gameObject.GetComponent("PlayerController") as PlayerController;
-    }
-	
-	void Update () {
-        
-	}
-
-    public void SetPlayerName ()
-    {
-
-    }
-
-    public void Pause ()
+    public void Pause()
     {
         Time.timeScale = 0;
     }
 
-    public void Resume ()
+    public void Resume()
     {
         Time.timeScale = 1;
     }
